@@ -62,3 +62,5 @@ with this:
   <% end %>
 <% end %>
 </pre>
+
+We can see this same example working in the "Mirah Interpreter plugin":https://github.com/calavera/mirah.hpi/blob/master/src/main/resources/hudson/plugins/mirah/MirahInterpreter/config.jelly.erb
