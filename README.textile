@@ -4,6 +4,8 @@ Actually this is a Maven plugin to use to develop Hudson's plugins and allows to
 
 When we build a Hudson's plugin with Maven it generates the jelly files that Hudson needs from our ERB templates.
 
+_WARNING_: Right now it just includes a subset of the form views.
+
 h3. Configuration
 
 Add this to the pom file:
@@ -38,11 +40,11 @@ We can replace this code:
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form" >
   <f:entry name="Verbose" description="Show Mirah AST generation">
-    <f:checkbox name="verbose" checked="$instance.verbose"/>
+    <f:checkbox name="verbose" checked="${instance.verbose}"/>
   </f:entry>
 
   <f:entry name="Script" description="Mirah script">
-    <f:textarea name="command" value="$instance.command"/>
+    <f:textarea name="command" value="${instance.command}"/>
   </f:entry>
 </j:jelly>
 </pre>
