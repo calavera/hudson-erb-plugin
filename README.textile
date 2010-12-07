@@ -12,7 +12,7 @@ Add this to the pom file:
   <build>
   ...
     <plugin>
-        <groupId>org.jvnet.hudson.plugins</groupId>
+        <groupId>org.mirah.hudson</groupId>
         <artifactId>hudson-erb-plugin</artifactId>
         <executions>
           <execution>
