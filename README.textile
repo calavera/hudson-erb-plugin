@@ -1,0 +1,62 @@
+h2. Hudson ERB plugin
+
+Actually this is a Maven plugin to use to develop Hudson's plugins and allows to write views with Ruby and ERB templates.
+
+When we build a Hudson's plugin with Maven it generates the jelly files that Hudson needs from our ERB templates.
+
+h3. Configuration
+
+Add this to the pom file:
+
+<pre>
+  <build>
+  ...
+    <plugin>
+        <groupId>org.jvnet.hudson.plugins</groupId>
+        <artifactId>hudson-erb-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals><goal>erb-compile</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+</pre>
+
+h3. Usage
+
+Add your ERB templates in the same place that you added your jelly files
+with the same name but with extension @jelly.erb@, for instance if we have a
+configuration form in @src/main/resources/hudson/plugin/foo/config.jelly@ we
+have to replace it with
+@src/main/resources/hudson/plugin/foo/config.jelly.erb@.
+
+h3. Example
+
+We can replace this code:
+
+<pre>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
+         xmlns:t="/lib/hudson" xmlns:f="/lib/form" >
+  <f:entry name="Verbose" description="Show Mirah AST generation">
+    <f:checkbox name="verbose" checked="$instance.verbose"/>
+  </f:entry>
+
+  <f:entry name="Script" description="Mirah script">
+    <f:textarea name="command" value="$instance.command"/>
+  </f:entry>
+</j:jelly>
+</pre>
+
+with this:
+
+<pre>
+<% view do %>
+  <% entry 'Verbose', :description => 'Show Mirah AST generation' do %>
+    <%= checkbox 'verbose' %>
+  <% end %>
+
+  <% entry 'Script', :description => 'Mirah script' do %>
+    <%= textarea 'command' %>
+  <% end %>
+<% end %>
+</pre>
