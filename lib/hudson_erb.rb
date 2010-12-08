@@ -1,5 +1,9 @@
 require 'erb'
 require 'hudson_view'
+begin
+  require 'ext'
+rescue LoadError
+end
 
 module Hudson
   class ERB

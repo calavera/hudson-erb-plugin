@@ -1,5 +1,8 @@
 package hudson.plugins.erb;
 
+import java.io.File;
+import java.io.FilenameFilter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +33,28 @@ public class ErbCompilerMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException {
         ScriptingContainer container = new ScriptingContainer(LocalContextScope.SINGLETHREAD);
-        container.setLoadPaths(getRubyPath());
 
         for (Resource resourceDirectory : resources) {
+            loadPathAndExtensions(container, resourceDirectory);
+
             container.put("resources", resourceDirectory.getDirectory());
 
             container.runScriptlet(PathType.CLASSPATH, "hudson_erb.rb");
         }
+    }
+
+    private void loadPathAndExtensions(ScriptingContainer container, Resource resourceDirectory) {
+        List<String> loadPaths = getRubyPath();
+
+        File dir = new File(resourceDirectory.getDirectory());
+        File[] exts = dir.listFiles(filter);
+        if (exts != null && exts.length > 0) {
+            for (File ext : exts) {
+                loadPaths.add(ext.getAbsolutePath());
+            }
+        }
+
+        container.setLoadPaths(loadPaths);
     }
 
     private List<String> getRubyPath() {
@@ -50,4 +68,12 @@ public class ErbCompilerMojo extends AbstractMojo {
     private String getResource(String resource) {
         return getClass().getClassLoader().getResource(resource).toString().replace("jar:", "");
     }
+
+    private static class ExtFilenameFilter implements java.io.FilenameFilter {
+        public boolean accept(File dir, String name) {
+            return name.equals("hudson_erb");
+        }
+    }
+
+    private static ExtFilenameFilter filter = new ExtFilenameFilter();
 }
