@@ -67,9 +67,8 @@ We can see this same example working in the "Mirah Interpreter plugin":https://g
 
 h3. Extensions
 
-In some cases perhaps you want to extend the dsl with your custom tags.
-you just need to create a file called @ext.rb@ under the directory
-@src/main/resources/hudson_erb@ into your plugin and add your code to the module @Hudson::View@:
+In some cases perhaps we want to extend the dsl with our custom tags. We just need to create a file called @ext.rb@ under the directory
+@src/main/resources/hudson_erb@ into our plugin and add the custom code to the module @Hudson::View@:
 
 <pre>
 module Hudson
@@ -81,7 +80,7 @@ module Hudson
 end
 </pre>
 
-and use that method in your views as you used anyother:
+Then we can use that method in our views as we used any other:
 
 <pre>
   <% entry 'Foo', :description => 'My foo input' do %>
