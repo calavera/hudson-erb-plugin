@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Hudson::ERB</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Hudson.html" title="Hudson (module)">Hudson</a></span></span>
+     &raquo; 
+    <span class="title">ERB</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Hudson::ERB
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Hudson::ERB</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="View.html" title="Hudson::View (module)">View</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/hudson_erb.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>This class is used by the JRuby scripting container to collect the <span class="caps">ERB</span>
+templates and generate the Jelly files.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render-instance_method" title="#render (instance method)">- (Object) <strong>render</strong>(resources) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Converts the <span class="caps">ERB</span> templates to Jelly templates and writes them under
+the same directory but without the extension .erb.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="View.html" title="Hudson::View (module)">View</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="View.html#map_to_attrs-instance_method" title="Hudson::View#map_to_attrs (method)">#map_to_attrs</a></span>, <span class='object_link'><a href="View.html#view-instance_method" title="Hudson::View#view (method)">#view</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="View/Form.html" title="Hudson::View::Form (module)">View::Form</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="View/Form.html#checkbox-instance_method" title="Hudson::View::Form#checkbox (method)">#checkbox</a></span>, <span class='object_link'><a href="View/Form.html#entry-instance_method" title="Hudson::View::Form#entry (method)">#entry</a></span>, <span class='object_link'><a href="View/Form.html#expandable_textbox-instance_method" title="Hudson::View::Form#expandable_textbox (method)">#expandable_textbox</a></span>, <span class='object_link'><a href="View/Form.html#options_for-instance_method" title="Hudson::View::Form#options_for (method)">#options_for</a></span>, <span class='object_link'><a href="View/Form.html#textarea-instance_method" title="Hudson::View::Form#textarea (method)">#textarea</a></span>, <span class='object_link'><a href="View/Form.html#textbox-instance_method" title="Hudson::View::Form#textbox (method)">#textbox</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="render-instance_method">
+  
+    - (<tt>Object</tt>) <strong>render</strong>(resources) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Converts the <span class="caps">ERB</span> templates to Jelly templates and writes them under
+the same directory but without the extension .erb. The template search
+is recursive under the given directory.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>resources</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>directory where the <span class="caps">ERB</span> templates are. It should be set by the JRuby scripting container.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb.rb', line 20</span>
+
+<span class='def def kw'>def</span> <span class='render identifier id'>render</span><span class='lparen token'>(</span><span class='resources identifier id'>resources</span><span class='rparen token'>)</span>
+  <span class='erb_files identifier id'>erb_files</span> <span class='assign token'>=</span> <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;#{resources}/**/*.erb&quot;</span><span class='rbrack token'>]</span>
+
+  <span class='erb_files identifier id'>erb_files</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='file identifier id'>file</span><span class='bitor op'>|</span>
+    <span class='erb identifier id'>erb</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='ERB constant id'>ERB</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='IO constant id'>IO</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='string val'>&quot;@output&quot;</span><span class='rparen token'>)</span>
+    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='string val'>'.erb'</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>'w+'</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='f identifier id'>f</span><span class='dot token'>.</span><span class='write identifier id'>write</span> <span class='erb identifier id'>erb</span><span class='dot token'>.</span><span class='result identifier id'>result</span><span class='lparen token'>(</span><span class='binding identifier id'>binding</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Dec  8 21:58:05 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

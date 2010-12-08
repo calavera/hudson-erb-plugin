@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Hudson::View</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (V)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Hudson.html" title="Hudson (module)">Hudson</a></span></span>
+     &raquo; 
+    <span class="title">View</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Hudson::View
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="View/Form.html" title="Hudson::View::Form (module)">Form</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="ERB.html" title="Hudson::ERB (class)">ERB</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/hudson_erb/hudson_view.rb<span class="defines">,<br />
+  lib/hudson_erb/views/form.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>This module includes methods to generate jelly general templates</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="View/Form.html" title="Hudson::View::Form (module)">Form</a></span>
+    
+   
+    
+  
+</p>
+
+
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#map_to_attrs-instance_method" title="#map_to_attrs (instance method)">- (Object) <strong>map_to_attrs</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Helper method to convert a hash with options to a string separated by
+spaces.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#view-instance_method" title="#view (instance method)">- (Object) <strong>view</strong>(options = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates jelly view tags.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="View/Form.html" title="Hudson::View::Form (module)">Form</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="View/Form.html#checkbox-instance_method" title="Hudson::View::Form#checkbox (method)">#checkbox</a></span>, <span class='object_link'><a href="View/Form.html#entry-instance_method" title="Hudson::View::Form#entry (method)">#entry</a></span>, <span class='object_link'><a href="View/Form.html#expandable_textbox-instance_method" title="Hudson::View::Form#expandable_textbox (method)">#expandable_textbox</a></span>, <span class='object_link'><a href="View/Form.html#options_for-instance_method" title="Hudson::View::Form#options_for (method)">#options_for</a></span>, <span class='object_link'><a href="View/Form.html#textarea-instance_method" title="Hudson::View::Form#textarea (method)">#textarea</a></span>, <span class='object_link'><a href="View/Form.html#textbox-instance_method" title="Hudson::View::Form#textbox (method)">#textbox</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="map_to_attrs-instance_method">
+  
+    - (<tt>Object</tt>) <strong>map_to_attrs</strong>(options) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Helper method to convert a hash with options to a string separated by
+spaces.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/hudson_view.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='map_to_attrs identifier id'>map_to_attrs</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>
+  <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span> <span class='integer val'>? </span><span class='string val'>''</span> <span class='colon op'>:</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span> <span class='dstring node'>%Q{#{k}=&quot;#{v}&quot;}</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>' '</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="view-instance_method">
+  
+    - (<tt>Object</tt>) <strong>view</strong>(options = {}, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates jelly view tags. It includes these namespaces by default:</p>
+<ul>
+	<li>xmlns:j  =&gt; jelly:code</li>
+	<li>xmlns:st =&gt; jelly:stapler</li>
+	<li>xmlns:d  =&gt; jelly:define</li>
+	<li>xmlns:l  =&gt; /lib/layout</li>
+	<li>xmlns:t  =&gt; /lib/hudson</li>
+	<li>xmlns:f  =&gt; /lib/form</li>
+</ul>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>% wiew </span><span class='do do kw'>do</span> <span class='string val'>%&gt;
+  &lt;h1&gt;</span><span class='This constant id'>This</span> <span class='is identifier id'>is</span> <span class='a identifier id'>a</span> <span class='jelly identifier id'>jelly</span> <span class='view identifier id'>view</span><span class='lt op'>&lt;</span><span class='regexp val'>/h1&gt;
+&lt;% end %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='j identifier id'>j</span><span class='symbol val'>:jelly</span> <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:j=</span><span class='string val'>&quot;jelly:core&quot;</span> <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:st=</span><span class='string val'>&quot;jelly:stapler&quot;</span> <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:d=</span><span class='string val'>&quot;jelly:define&quot;</span> <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:l=</span><span class='string val'>&quot;/lib/layout&quot;</span>
+    <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:t=</span><span class='string val'>&quot;/lib/hudson&quot;</span> <span class='xmlns identifier id'>xmlns</span><span class='symbol val'>:f=</span><span class='string val'>&quot;/lib/form&quot;</span> <span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='h1 identifier id'>h1</span><span class='gt op'>&gt;</span><span class='This constant id'>This</span> <span class='is identifier id'>is</span> <span class='a identifier id'>a</span> <span class='jelly identifier id'>jelly</span> <span class='view identifier id'>view</span><span class='lt op'>&lt;</span><span class='regexp val'>/h1&gt;
+&lt;/</span><span class='j identifier id'>j</span><span class='symbol val'>:jelly</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>that are set as attributes for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+        <span class='name'>block</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>that&#8217;s executed to render nested elements</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/hudson_view.rb', line 31</span>
+
+<span class='def def kw'>def</span> <span class='view identifier id'>view</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='namespaces identifier id'>namespaces</span> <span class='assign token'>=</span> <span class='string val'>'xmlns:j=&quot;jelly:core&quot; xmlns:st=&quot;jelly:stapler&quot; xmlns:d=&quot;jelly:define&quot; xmlns:l=&quot;/lib/layout&quot;
+     xmlns:t=&quot;/lib/hudson&quot; xmlns:f=&quot;/lib/form&quot; '</span>
+
+  <span class='namespaces identifier id'>namespaces</span> <span class='lshft op'>&lt;&lt;</span> <span class='map_to_attrs identifier id'>map_to_attrs</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>
+
+  <span class='@output ivar id'>@output</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;&lt;j:jelly #{namespaces}&gt;&quot;</span>
+  <span class='yield yield kw'>yield</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
+  <span class='@output ivar id'>@output</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>'&lt;/j:jelly&gt;'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Dec  8 21:58:04 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

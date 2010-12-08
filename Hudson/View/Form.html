@@ -1,0 +1,805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Hudson::View::Form</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Hudson.html" title="Hudson (module)">Hudson</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../View.html" title="Hudson::View (module)">View</a></span></span>
+     &raquo; 
+    <span class="title">Form</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Hudson::View::Form
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../View.html" title="Hudson::View (module)">Hudson::View</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/hudson_erb/views/form.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>This module includes methods to generate jelly form templates.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#checkbox-instance_method" title="#checkbox (instance method)">- (Object) <strong>checkbox</strong>(name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a checkbox.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entry-instance_method" title="#entry (instance method)">- (Object) <strong>entry</strong>(name, options = {}, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates an entry element for a form field.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expandable_textbox-instance_method" title="#expandable_textbox (instance method)">- (Object) <strong>expandable_textbox</strong>(name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates an expandable textbox.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options_for-instance_method" title="#options_for (instance method)">- (Object) <strong>options_for</strong>(items, selected, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a list of options to wrap for a select element.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#textarea-instance_method" title="#textarea (instance method)">- (Object) <strong>textarea</strong>(name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a textarea.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#textbox-instance_method" title="#textbox (instance method)">- (Object) <strong>textbox</strong>(name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a textbox.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="checkbox-instance_method">
+  
+    - (<tt>Object</tt>) <strong>checkbox</strong>(name, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates a checkbox</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>%= ckeckbox :verbose %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:checkbox</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;verbose&quot;</span> <span class='checked identifier id'>checked</span><span class='assign token'>=</span><span class='string val'>&quot;${instance.verbose}&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the attribute `name` for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>to render a additional attributes for the element</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 87</span>
+
+<span class='def def kw'>def</span> <span class='checkbox identifier id'>checkbox</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='content_tag identifier id'>content_tag</span> <span class='string val'>'checkbox'</span><span class='comma token'>,</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='string val'>'checked'</span><span class='comma token'>,</span> <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="entry-instance_method">
+  
+    - (<tt>Object</tt>) <strong>entry</strong>(name, options = {}, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates an entry element for a form field.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>% entry </span><span class='string val'>'Address'</span> <span class='do do kw'>do</span> <span class='string val'>%&gt;
+  &lt;input type=&quot;text&quot; name=&quot;address&quot;/&gt;</span>
+<span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
+</pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:entry</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;Address&quot;</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='input identifier id'>input</span> <span class='type identifier id'>type</span><span class='assign token'>=</span><span class='string val'>&quot;text&quot;</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;address&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+<span class='lt op'>&lt;</span><span class='regexp val'>/f:entry&gt;
+</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the attribute `name` of the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>that are used as additional attributes for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+        <span class='name'>block</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>that&#8217;s executed to render nested elements</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 22</span>
+
+<span class='def def kw'>def</span> <span class='entry identifier id'>entry</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='attrs identifier id'>attrs</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='name identifier id'>name</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span> <span class='options identifier id'>options</span>
+
+  <span class='@output ivar id'>@output</span> <span class='opasgn op'>||=</span> <span class='string val'>''</span>
+  <span class='@output ivar id'>@output</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;&lt;f:entry #{map_to_attrs(attrs)}&gt;&quot;</span>
+  <span class='yield yield kw'>yield</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
+  <span class='@output ivar id'>@output</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>'&lt;/f:entry&gt;'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="expandable_textbox-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expandable_textbox</strong>(name, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates an expandable textbox</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>%= expandable_textbox :directories %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:expandableTextbox</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;directories&quot;</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='string val'>&quot;${instance.directories}&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the attribute `name` for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>to render a additional attributes for the element</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 57</span>
+
+<span class='def def kw'>def</span> <span class='expandable_textbox identifier id'>expandable_textbox</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='content_tag identifier id'>content_tag</span> <span class='string val'>'expandableTextbox'</span><span class='comma token'>,</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='string val'>'value'</span><span class='comma token'>,</span> <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="options_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>options_for</strong>(items, selected, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates a list of options to wrap for a select element. It uses
+the jelly element j:forEach to iterate over the options.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>%= options_for :installations, :installation %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='j identifier id'>j</span><span class='symbol val'>:forEach</span> <span class='var identifier id'>var</span><span class='assign token'>=</span><span class='string val'>&quot;option&quot;</span> <span class='items identifier id'>items</span><span class='assign token'>=</span><span class='string val'>&quot;${descriptor.installations}&quot;</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:option</span> <span class='selected identifier id'>selected</span><span class='assign token'>=</span><span class='string val'>&quot;${option.name == instance.installation}&quot;</span><span class='gt op'>&gt;</span>$<span class='lbrace token'>{</span><span class='option identifier id'>option</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='rbrace token'>}</span><span class='lt op'>&lt;</span><span class='regexp val'>/f:option&gt;
+&lt;/</span><span class='j identifier id'>j</span><span class='symbol val'>:forEach</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>items</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the name of the collection from the items are selected</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>selected</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the name of the attribute that stores the selected item in the object</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>to override some attributes</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 106</span>
+
+<span class='def def kw'>def</span> <span class='options_for identifier id'>options_for</span><span class='lparen token'>(</span><span class='items identifier id'>items</span><span class='comma token'>,</span> <span class='selected identifier id'>selected</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:var</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>'option'</span>
+  <span class='items_name identifier id'>items_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:items</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='dstring node'>&quot;${descriptor.#{items}}&quot;</span>
+  <span class='instance_selected identifier id'>instance_selected</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:selected</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='dstring node'>&quot;instance.#{selected}&quot;</span>
+  <span class='option_value identifier id'>option_value</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:value</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>'name'</span>
+
+  <span class='option identifier id'>option</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{var_name}.#{option_value}&quot;</span>
+
+  <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='dstring node'>%Q{&lt;j:forEach var=&quot;#{var_name}&quot; items=&quot;#{items_name}&quot;&gt;}</span>
+  <span class='options identifier id'>options</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>%Q{&lt;f:option selected=&quot;${#{option} == #{instance_selected}}&quot;&gt;${#{option}}&lt;/f:option&gt;}</span>
+  <span class='options identifier id'>options</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>'&lt;/j:forEach&gt;'</span>
+  <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="textarea-instance_method">
+  
+    - (<tt>Object</tt>) <strong>textarea</strong>(name, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates a textarea</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>%= textarea :script %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:textarea</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;script&quot;</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='string val'>&quot;${instance.script}&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the attribute `name` for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>to render a additional attributes for the element</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 72</span>
+
+<span class='def def kw'>def</span> <span class='textarea identifier id'>textarea</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='content_tag identifier id'>content_tag</span> <span class='string val'>'textarea'</span><span class='comma token'>,</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='string val'>'value'</span><span class='comma token'>,</span> <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="textbox-instance_method">
+  
+    - (<tt>Object</tt>) <strong>textbox</strong>(name, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Generates a textbox</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>given this code</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='string val'>%= textbox :directory %&gt;
+</span></pre>
+    
+      <h4><div class='inline'><p>generates this jelly template</p></div></h4>
+      <pre class="example code"><span class='lt op'>&lt;</span><span class='f identifier id'>f</span><span class='symbol val'>:textbox</span> <span class='name identifier id'>name</span><span class='assign token'>=</span><span class='string val'>&quot;directory&quot;</span> <span class='value identifier id'>value</span><span class='assign token'>=</span><span class='string val'>&quot;${instance.directory}&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>is the attribute `name` for the element</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>to render a additional attributes for the element</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/hudson_erb/views/form.rb', line 42</span>
+
+<span class='def def kw'>def</span> <span class='textbox identifier id'>textbox</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='content_tag identifier id'>content_tag</span> <span class='string val'>'textbox'</span><span class='comma token'>,</span> <span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='string val'>'value'</span><span class='comma token'>,</span> <span class='options identifier id'>options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Dec  8 21:58:04 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
