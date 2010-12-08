@@ -1,4 +1,7 @@
-require 'rake'
+require 'rubygems'
+require 'bundler'
+require 'bundler/setup'
+Bundler::GemHelper.install_tasks
 
 begin
   require 'rspec/core/rake_task'
@@ -9,6 +12,13 @@ end
 
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.rspec_opts = ['--colour', "--format documentation"]
+end
+
+begin
+  # Documentation task
+  require 'yard'
+  YARD::Rake::YardocTask.new
+rescue LoadError
 end
 
 task :default => :spec
