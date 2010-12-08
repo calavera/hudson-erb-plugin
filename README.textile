@@ -49,7 +49,7 @@ We can replace this code:
 </j:jelly>
 </pre>
 
-with this:
+with this one:
 
 <pre>
 <% view do %>
@@ -64,3 +64,27 @@ with this:
 </pre>
 
 We can see this same example working in the "Mirah Interpreter plugin":https://github.com/calavera/mirah.hpi/blob/master/src/main/resources/hudson/plugins/mirah/MirahInterpreter/config.jelly.erb
+
+h3. Extensions
+
+In some cases perhaps you want to extend the dsl with your custom tags.
+you just need to create a file called @ext.rb@ under the directory
+@src/main/resources/hudson_erb@ into your plugin and add your code to the module @Hudson::View@:
+
+<pre>
+module Hudson
+  module View
+    def foo
+      '<input type="foo"/>'
+    end
+  end
+end
+<pre>
+
+and use that method in your views as you used anyother:
+
+<pre>
+  <% entry 'Foo', :description => 'My foo input' do %>
+    <%= foo %>
+  <% end %>
+<pre>
