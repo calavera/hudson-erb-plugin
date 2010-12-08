@@ -16,4 +16,6 @@ module Hudson
   end
 end
 
-Hudson::ERB.new.render(resources)
+if __FILE__ == $0
+  Hudson::ERB.new.render(resources)
+end
