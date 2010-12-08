@@ -29,4 +29,9 @@ shared_examples_for "all form fields" do
     text = subject.send(@method, 'foo', @value_attr => '${other_instance.foo}')
     text.should include(%Q{#{@attr_value}="${other_instance.foo}"})
   end
+
+  it "can use symbols as field names" do
+    text = subject.send(@method, :foo)
+    text.should include('name="foo"')
+  end
 end

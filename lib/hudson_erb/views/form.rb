@@ -28,7 +28,7 @@ module Hudson
 
       private
       def content_tag(tag_name, name, field_value = 'value', options = {})
-        field_name = name.split('.')[-1]
+        field_name = name.to_s.split('.')[-1]
         value = "${instance.#{field_name}}"
 
         attrs = {
