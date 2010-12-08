@@ -1,5 +1,7 @@
 module Hudson
   module View
+    # This module includes methods to generate jelly form templates.
+    #
     module Form
       # Generates an entry element for a form field.
       #
@@ -7,14 +9,12 @@ module Hudson
       # @param [Hash] options that are used as additional attributes for the element
       # @param [Block] block that's executed to render nested elements
       #
-      # Example:
-      #
+      # @example given this code
       #   <% entry 'Address' do %>
       #     <input type="text" name="address"/>
       #   <% end %>
       #
-      # Generates:
-      #
+      # @example generates this jelly template
       #   <f:entry name="Address">
       #     <input type="text" name="address"/>
       #   </f:entry>
@@ -33,12 +33,10 @@ module Hudson
       # @param [String, Symbol] name is the attribute `name` for the element
       # @param [Hash] options to render a additional attributes for the element
       #
-      # Example:
-      #
+      # @example given this code
       #   <%= textbox :directory %>
       #
-      # Generates:
-      #
+      # @example generates this jelly template
       #   <f:textbox name="directory" value="${instance.directory}"/>
       #
       def textbox(name, options = {})
@@ -50,12 +48,10 @@ module Hudson
       # @param [String, Symbol] name is the attribute `name` for the element
       # @param [Hash] options to render a additional attributes for the element
       #
-      # Example:
-      #
+      # @example given this code
       #   <%= expandable_textbox :directories %>
       #
-      # Generates:
-      #
+      # @example generates this jelly template
       #   <f:expandableTextbox name="directories" value="${instance.directories}"/>
       #
       def expandable_textbox(name, options = {})
@@ -67,12 +63,10 @@ module Hudson
       # @param [String, Symbol] name is the attribute `name` for the element
       # @param [Hash] options to render a additional attributes for the element
       #
-      # Example:
-      #
+      # @example given this code
       #   <%= textarea :script %>
       #
-      # Generates:
-      #
+      # @example generates this jelly template
       #   <f:textarea name="script" value="${instance.script}"/>
       #
       def textarea(name, options = {})
@@ -84,16 +78,43 @@ module Hudson
       # @param [String, Symbol] name is the attribute `name` for the element
       # @param [Hash] options to render a additional attributes for the element
       #
-      # Example:
-      #
+      # @example given this code
       #   <%= ckeckbox :verbose %>
       #
-      # Generates:
-      #
+      # @example generates this jelly template
       #   <f:checkbox name="verbose" checked="${instance.verbose}"/>
       #
       def checkbox(name, options = {})
         content_tag 'checkbox', name, 'checked', options
+      end
+
+      # Generates a list of options to wrap for a select element. It uses
+      # the jelly element j:forEach to iterate over the options.
+      #
+      # @param [String, Symbol] items is the name of the collection from the items are selected
+      # @param [String, Symbol] selected is the name of the attribute that stores the selected item in the object
+      # @param [Hash] options to override some attributes
+      #
+      # @example given this code
+      #   <%= options_for :installations, :installation %>
+      #
+      # @example generates this jelly template
+      #   <j:forEach var="option" items="${descriptor.installations}">
+      #     <f:option selected="${option.name == instance.installation}">${option.name}</f:option>
+      #   </j:forEach>
+      #
+      def options_for(items, selected, options = {})
+        var_name = options.delete(:var) || 'option'
+        items_name = options.delete(:items) || "${descriptor.#{items}}"
+        instance_selected = options.delete(:selected) || "instance.#{selected}"
+        option_value = options.delete(:value) || 'name'
+
+        option = "#{var_name}.#{option_value}"
+
+        options = %Q{<j:forEach var="#{var_name}" items="#{items_name}">}
+        options << %Q{<f:option selected="${#{option} == #{instance_selected}}">${#{option}}</f:option>}
+        options << '</j:forEach>'
+        options
       end
 
       private

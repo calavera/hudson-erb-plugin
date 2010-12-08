@@ -1,6 +1,8 @@
 require 'views/form'
 
 module Hudson
+  # This module includes methods to generate jelly general templates
+  #
   module View
     include Form
 
@@ -15,14 +17,12 @@ module Hudson
     # @param [Hash] options that are set as attributes for the element
     # @param [Block] block that's executed to render nested elements
     #
-    # Example:
-    #
+    # @example given this code
     #   <% wiew do %>
     #     <h1>This is a jelly view</h1>
     #   <% end %>
     #
-    # Generates:
-    #
+    # @example generates this jelly template
     #   <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
     #       xmlns:t="/lib/hudson" xmlns:f="/lib/form" >
     #     <h1>This is a jelly view</h1>

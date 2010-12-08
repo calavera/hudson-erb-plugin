@@ -4,8 +4,11 @@ begin
   require 'ext'
 rescue LoadError
 end
-
+# Module that includes classes and utilities to convert ERB templates to Jelly templates.
+#
 module Hudson
+  # This class is used by the JRuby scripting container to collect the ERB
+  # templates and generate the Jelly files.
   class ERB
     include Hudson::View
 
@@ -13,8 +16,7 @@ module Hudson
     # the same directory but without the extension .erb. The template search
     # is recursive under the given directory.
     #
-    # @param [String] resources directory where the ERB templates are. It
-    # should be set by the JRuby scripting container.
+    # @param [String] resources directory where the ERB templates are. It should be set by the JRuby scripting container.
     def render(resources)
       erb_files = Dir["#{resources}/**/*.erb"]
 
