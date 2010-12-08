@@ -10,21 +10,29 @@ module Hudson
         @output << '</f:entry>'
       end
 
-      def textarea(name, prefix = nil, options = {})
-        content_tag 'textarea', name, prefix, 'value', options
+      def textbox(name, options = {})
+        content_tag 'textbox', name, 'value', options
       end
 
-      def checkbox(name, prefix = nil, options = {})
-        content_tag 'checkbox', name, prefix, 'checked', options
+      def expandable_textbox(name, options = {})
+        content_tag 'expandableTextbox', name, 'value', options
+      end
+
+      def textarea(name, options = {})
+        content_tag 'textarea', name, 'value', options
+      end
+
+      def checkbox(name, options = {})
+        content_tag 'checkbox', name, 'checked', options
       end
 
       private
-      def content_tag(tag_name, name, prefix = nil, field_value = 'value', options = {})
-        field_name = prefix.nil? ? name : "#{prefix}.#{name}"
-        value = "${instance.#{name}}"
+      def content_tag(tag_name, name, field_value = 'value', options = {})
+        field_name = name.split('.')[-1]
+        value = "${instance.#{field_name}}"
 
         attrs = {
-          :name => field_name,
+          :name => name,
           field_value => value
         }.merge options
 
