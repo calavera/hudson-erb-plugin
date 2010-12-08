@@ -93,7 +93,8 @@ module Hudson
       #
       # @param [String, Symbol] items is the name of the collection from the items are selected
       # @param [String, Symbol] selected is the name of the attribute that stores the selected item in the object
-      # @param [Hash] options to override some attributes
+      # @param [String, Symbol] var_name is the name used to iterate over the options
+      # @param [String, Symbol] option_value is the attribute to compare the selected value across the options
       #
       # @example given this code
       #   <%= options_for :installations, :installation %>
@@ -103,11 +104,9 @@ module Hudson
       #     <f:option selected="${option.name == instance.installation}">${option.name}</f:option>
       #   </j:forEach>
       #
-      def options_for(items, selected, options = {})
-        var_name = options.delete(:var) || 'option'
-        items_name = options.delete(:items) || "${descriptor.#{items}}"
-        instance_selected = options.delete(:selected) || "instance.#{selected}"
-        option_value = options.delete(:value) || 'name'
+      def options_for(items, selected, var_name = 'option', option_value = 'name')
+        items_name = items =~ %r{^\$\{.+\}$} ? items : "${descriptor.#{items}}"
+        instance_selected = selected =~ %r{^\$\{.+\}$} ? selected.gsub(%r{^\$\{(.+)\}$}, '\1') : "instance.#{selected}"
 
         option = "#{var_name}.#{option_value}"
 

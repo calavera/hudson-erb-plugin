@@ -75,24 +75,24 @@ describe "Hudson::View::Form" do
       options.should include('selected="${option.name == instance.installation}"')
     end
 
-    it "can override the variable name for the loop with the option :var" do
-      options = subject.options_for 'installations', 'installation', {:var => 'foo'}
+    it "can override the variable name for the loop" do
+      options = subject.options_for 'installations', 'installation', 'foo'
       options.should include('var="foo"')
       options.should include('${foo.name}</f:option>')
     end
 
-    it "can override the items name with the option :items" do
-      options = subject.options_for 'installations', 'installation', :items => '${instance.foo}'
+    it "can override the items name" do
+      options = subject.options_for '${instance.foo}', 'installation'
       options.should include('items="${instance.foo}"')
     end
 
-    it "can override the selected item with the option :selected" do
-      options = subject.options_for 'installations', 'installation', :selected => "instance.foo"
+    it "removes brackets from the instance variable name if it includes them" do
+      options = subject.options_for 'installations', '${instance.foo}'
       options.should include('selected="${option.name == instance.foo}"')
     end
 
-    it "can override the value to show and compare in the list with the option :value" do
-      options = subject.options_for 'installations', 'installation', :value => 'value'
+    it "can override the value to show and compare in the list" do
+      options = subject.options_for 'installations', 'installation', 'option', 'value'
       options.should include('selected="${option.value == instance.installation}"')
       options.should include('${option.value}</f:option>')
     end
