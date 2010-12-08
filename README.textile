@@ -79,7 +79,7 @@ module Hudson
     end
   end
 end
-<pre>
+</pre>
 
 and use that method in your views as you used anyother:
 
@@ -87,4 +87,4 @@ and use that method in your views as you used anyother:
   <% entry 'Foo', :description => 'My foo input' do %>
     <%= foo %>
   <% end %>
-<pre>
+</pre>
