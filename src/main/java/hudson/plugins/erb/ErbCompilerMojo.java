@@ -1,6 +1,6 @@
 package hudson.plugins.erb;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.maven.model.Resource;
@@ -35,12 +35,19 @@ public class ErbCompilerMojo extends AbstractMojo {
         for (Resource resourceDirectory : resources) {
             container.put("resources", resourceDirectory.getDirectory());
 
-            container.runScriptlet(PathType.CLASSPATH, "ruby/hudson_erb.rb");
+            container.runScriptlet(PathType.CLASSPATH, "hudson_erb.rb");
         }
     }
 
     private List<String> getRubyPath() {
-        return Collections.singletonList(
-            getClass().getClassLoader().getResource("ruby").toString().replace("jar:", ""));
+        List<String> loadPath = new ArrayList<String>();
+        loadPath.add(getResource("hudson_erb.rb"));
+        loadPath.add(getResource("hudson_erb"));
+
+        return loadPath;
+    }
+
+    private String getResource(String resource) {
+        return getClass().getClassLoader().getResource(resource).toString().replace("jar:", "");
     }
 }
