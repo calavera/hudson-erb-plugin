@@ -125,4 +125,14 @@ describe "Hudson::View::Form" do
       button.should include('progress="checking connection"')
     end
   end
+
+  context "rendering an advanced block" do
+    it "shows the advanced element tags and executes the block passed as a paramter" do
+      out = ''
+
+      advanced = subject.advanced { out = 'block' }
+      out.should == 'block'
+      advanced.should == '<f:advanced></f:advanced>'
+    end
+  end
 end

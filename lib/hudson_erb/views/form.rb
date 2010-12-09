@@ -133,6 +133,25 @@ module Hudson
         %Q{<f:validateButton title="#{title}" with="#{with}" method="#{method}" progress="#{progress}"/>}
       end
 
+      # Expandable section that shows "advanced..." button by default. Upon clicking it, a section unfolds.
+      #
+      # @example given that code
+      #   <% advanced do %>
+      #     <%= textbox :foo %>
+      #   <% end %>
+      #
+      # @example generates this jelly template
+      #   <f:advanced>
+      #     <f:textbox name="foo" value="${instance.foo}"/>
+      #   </f:advanced>
+      #
+      def advanced(&block)
+        @output ||= ''
+        @output << '<f:advanced>'
+        yield if block_given?
+        @output << '</f:advanced>'
+      end
+
       private
       def content_tag(tag_name, name, field_value = 'value', options = {})
         field_name = name.to_s.split('.')[-1]
