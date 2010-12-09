@@ -135,7 +135,7 @@ module Hudson
 
       # Expandable section that shows "advanced..." button by default. Upon clicking it, a section unfolds.
       #
-      # @example given that code
+      # @example given this code
       #   <% advanced do %>
       #     <%= textbox :foo %>
       #   <% end %>
@@ -150,6 +150,27 @@ module Hudson
         @output << '<f:advanced>'
         yield if block_given?
         @output << '</f:advanced>'
+      end
+
+      # Section header with an horizontal line bellow.
+      #
+      # @param [String, Symbol] title is the label that shows as section's title
+      #
+      # @example given this code
+      #   <% section 'Job options' do %>
+      #     <%= textbox :foo %>
+      #   <% end %>
+      #
+      # @example generates this jelly template
+      #   <f:section title="Jroject options">
+      #     <f:textbox name="foo" value="${instance.foo}"/>
+      #   </f:section>
+      #
+      def section(title, &block)
+        @output ||= ''
+        @output << %Q{<f:section title="#{title}">}
+        yield if block_given?
+        @output << '</f:section>'
       end
 
       private

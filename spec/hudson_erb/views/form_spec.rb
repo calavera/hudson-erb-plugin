@@ -135,4 +135,15 @@ describe "Hudson::View::Form" do
       advanced.should == '<f:advanced></f:advanced>'
     end
   end
+
+  context "rendering a section" do
+    it "shows the section with a title and executes the block passed as a paramter" do
+      out = ''
+
+      section = subject.section('Options') { out = 'block' }
+      out.should == 'block'
+      section.should == '<f:section title="Options"></f:section>'
+    end
+  end
+
 end
