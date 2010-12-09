@@ -28,7 +28,7 @@ namespace :doc do
   desc 'upload documentation to github pages'
   task :upload => :yard do
     `git co gh-pages`
-    `mv doc/* .`
+    `cp -r doc/* .`
     `rm -rf doc`
     `git ci -am 'release documentation'`
     `git push origin gh-pages`
