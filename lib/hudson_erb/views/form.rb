@@ -31,7 +31,7 @@ module Hudson
       # Generates a textbox
       #
       # @param [String, Symbol] name is the attribute `name` for the element
-      # @param [Hash] options to render a additional attributes for the element
+      # @param [Hash] options used to render additional attributes for the element
       #
       # @example given this code
       #   <%= textbox :directory %>
@@ -46,7 +46,7 @@ module Hudson
       # Generates an expandable textbox
       #
       # @param [String, Symbol] name is the attribute `name` for the element
-      # @param [Hash] options to render a additional attributes for the element
+      # @param [Hash] options used to render additional attributes for the element
       #
       # @example given this code
       #   <%= expandable_textbox :directories %>
@@ -61,7 +61,7 @@ module Hudson
       # Generates a textarea
       #
       # @param [String, Symbol] name is the attribute `name` for the element
-      # @param [Hash] options to render a additional attributes for the element
+      # @param [Hash] options used to render additional attributes for the element
       #
       # @example given this code
       #   <%= textarea :script %>
@@ -76,7 +76,7 @@ module Hudson
       # Generates a checkbox
       #
       # @param [String, Symbol] name is the attribute `name` for the element
-      # @param [Hash] options to render a additional attributes for the element
+      # @param [Hash] options used to render additional attributes for the element
       #
       # @example given this code
       #   <%= ckeckbox :verbose %>
