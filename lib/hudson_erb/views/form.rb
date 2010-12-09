@@ -135,6 +135,8 @@ module Hudson
 
       # Expandable section that shows "advanced..." button by default. Upon clicking it, a section unfolds.
       #
+      # @param [Block] block is the process executed to render nested elements
+      #
       # @example given this code
       #   <% advanced do %>
       #     <%= textbox :foo %>
@@ -154,7 +156,8 @@ module Hudson
 
       # Section header with an horizontal line bellow.
       #
-      # @param [String, Symbol] title is the label that shows as section's title
+      # @param [String] title is the label that shows as section's title
+      # @param [Block] block is the process executed to render nested elements
       #
       # @example given this code
       #   <% section 'Job options' do %>
@@ -171,6 +174,30 @@ module Hudson
         @output << %Q{<f:section title="#{title}">}
         yield if block_given?
         @output << '</f:section>'
+      end
+
+      # Foldable block expanded when the menu item is checked.
+      #
+      # @param [String, Symbol] name is name of the checkbox
+      # @param [String] title is the readable text that follows the checkbox
+      # @param [Boolean] checked is the inital status of the checkbox
+      # @param [Block] block is the process executed to render nested elements
+      #
+      # @example given this code
+      #   <% optional_block :dynamic, 'Use dynamic view' do %>
+      #     <%= textbox :foo %>
+      #   <% end %>
+      #
+      # @example generates this jelly template
+      #   <f:optionalBlock name="dynamic" title="Use dynamic view" checked="false">
+      #     <f:textbox name="foo" value="${instance.foo}"/>
+      #   </f:optionalBlock>
+      #
+      def optional_block(name, title, checked = false)
+        @output ||= ''
+        @output << %Q{<f:optionalBlock name="#{name}" title="#{title}" checked="#{checked}">}
+        yield if block_given?
+        @output << '</f:optionalBlock>'
       end
 
       private

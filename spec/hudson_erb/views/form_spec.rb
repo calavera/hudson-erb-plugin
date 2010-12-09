@@ -146,4 +146,28 @@ describe "Hudson::View::Form" do
     end
   end
 
+  context "rendering an optional block" do
+    it "shows the name and the title parameters given and it's not checked by default" do
+      block = subject.optional_block :dynamic, 'Use dynamic'
+
+      block.should include('name="dynamic"')
+      block.should include('title="Use dynamic"')
+      block.should include('checked="false"')
+    end
+
+    it "can render the checkbox checked" do
+      block = subject.optional_block :dynamic, 'Use dynamic', true
+      block.should include('checked="true"')
+    end
+
+    it "executes the given block" do
+      out = ''
+      block = subject.optional_block :dynamic, 'Use dynamic' do
+        out = 'block'
+      end
+
+      out.should == 'block'
+      block.should == '<f:optionalBlock name="dynamic" title="Use dynamic" checked="false"></f:optionalBlock>'
+    end
+  end
 end
