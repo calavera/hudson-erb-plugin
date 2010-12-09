@@ -180,4 +180,40 @@ describe "Hudson::View::Form" do
       advanced.should == '<f:block></f:block>'
     end
   end
+
+  context "rendering a boolean radio" do
+    it "uses booleanRadio as the name of the element" do
+      radio = subject.boolean_radio 'option'
+      radio.should include('<f:booleanRadio')
+    end
+
+    it "uses the first parameter as a field to bind" do
+      radio = subject.boolean_radio 'option'
+      radio.should include('field="option"')
+    end
+
+    it "uses `No` and `Yes` as default values for the false and true fields" do
+      radio = subject.boolean_radio 'option'
+      radio.should include('false="No"')
+      radio.should include('true="Yes"')
+    end
+
+    it "can use any other values for the true and false fields" do
+      radio = subject.boolean_radio 'option', 'Cancel', 'Accept'
+      radio.should include('false="Cancel"')
+      radio.should include('true="Accept"')
+    end
+  end
+
+  context "rendering a combobox" do
+    it "takes the field name as value for the field element" do
+      combo = subject.combobox :countries
+      combo.should == '<f:combobox field="countries"/>'
+    end
+
+    it "can add addition css classes" do
+      combo = subject.combobox :countries, :list
+      combo.should == '<f:combobox field="countries" clazz="list"/>'
+    end
+  end
 end

@@ -212,6 +212,40 @@ module Hudson
         separation :block, nil, &block
       end
 
+      # Binds a boolean field to two radio buttons that say Yes/No OK/Cancel Top/Bottom.
+      #
+      # @param [String, Symbol] field is the data binding field
+      # @param [String] false_value is the text to be displayed for the `false` value
+      # @param [String] true_value is the text to be displayed for the `true` value
+      #
+      # @example given this code
+      #   <%= boolean_radio :option %>
+      #
+      # @example generates this jelly template
+      #   <f:booleanRadio field="option" false="No" true="Yes"/>
+      #
+      def boolean_radio(field, false_value = 'No', true_value = 'Yes')
+        %Q{<f:booleanRadio field="#{field}" false="#{false_value}" true="#{true_value}"/>}
+      end
+
+      # Editable drop-down combo box that supports the data binding and AJAX updates.
+      # Your descriptor should have the 'doFillXyzItems' method, which returns a ComboBoxModel representation of the items.
+      #
+      # @param [String, Symbol] field is the data binding field
+      # @param [String, Symbol] clazz is the addition css classes that the element gets
+      #
+      # @example given this code
+      #   <%= combobox :countries %>
+      #
+      # @example generates this jelly template
+      #   <f:combobox field="countries" />
+      #
+      def combobox(field, clazz = nil)
+        combo = %Q{<f:combobox field="#{field}"}
+        combo << %Q{ clazz="#{clazz}"} if clazz
+        combo << '/>'
+      end
+
       private
       def content_tag(tag_name, name, field_value = 'value', options = {})
         field_name = name.to_s.split('.')[-1]
