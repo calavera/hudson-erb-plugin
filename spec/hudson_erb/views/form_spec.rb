@@ -97,4 +97,32 @@ describe "Hudson::View::Form" do
       options.should include('${option.value}</f:option>')
     end
   end
+
+  context "rendering a validation button" do
+    it "needs title as mandatory arguments" do
+      button = subject.validate_button 'Validate', 'accessKey'
+      button.should include('title="Validate"')
+    end
+
+    it "needs form fields to send to the server" do
+      button = subject.validate_button 'Validate', 'secretKey,accessKey'
+      button.should include('with="secretKey,accessKey"')
+    end
+
+    it "uses `validate` as default name for the server method that checks the fields" do
+      button = subject.validate_button 'Validate', 'accessKey'
+      button.should include('method="validate"')
+    end
+
+    it "can use an alternative method name" do
+      button = subject.validate_button 'Validate', 'secretKey', 'testConnection'
+      button.should include('method="testConnection"')
+    end
+
+
+    it "can use a sentence to show while the method is in progress" do
+      button = subject.validate_button 'Validate', 'secretKey,accessKey', 'testConnection', 'checking connection'
+      button.should include('progress="checking connection"')
+    end
+  end
 end

@@ -116,6 +116,23 @@ module Hudson
         options
       end
 
+      # This tag creates a right-aligned button for performing server-side validation.
+      #
+      # @param [String, Symbol] title is the label that the button shows
+      # @param [String] with is the field or list of fields separated by comma which values are sent to the server
+      # @param [String, Symbol] method is the method invoked by the server without the prefix do. For instace method="test" will invoke the doTest method
+      # @param [String] progress is the label that the button shows while it's waiting a response
+      #
+      # @example given this code
+      #   <%= validate_button :Validate, 'accessKey' %>
+      #
+      # @example generates this jelly template
+      #   <f:validateButton title="Validate" with="accessKey" method="test" progress="" />
+      #
+      def validate_button(title, with, method = 'validate', progress = '')
+        %Q{<f:validateButton title="#{title}" with="#{with}" method="#{method}" progress="#{progress}"/>}
+      end
+
       private
       def content_tag(tag_name, name, field_value = 'value', options = {})
         field_name = name.to_s.split('.')[-1]
