@@ -170,4 +170,14 @@ describe "Hudson::View::Form" do
       block.should == '<f:optionalBlock name="dynamic" title="Use dynamic" checked="false"></f:optionalBlock>'
     end
   end
+
+  context "rendering a block" do
+    it "shows the block element tags and executes the block passed as a paramter" do
+      out = ''
+
+      advanced = subject.block { out = 'block' }
+      out.should == 'block'
+      advanced.should == '<f:block></f:block>'
+    end
+  end
 end

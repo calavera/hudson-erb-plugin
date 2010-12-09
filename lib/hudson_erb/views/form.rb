@@ -148,10 +148,7 @@ module Hudson
       #   </f:advanced>
       #
       def advanced(&block)
-        @output ||= ''
-        @output << '<f:advanced>'
-        yield if block_given?
-        @output << '</f:advanced>'
+        separation :advanced, nil, &block
       end
 
       # Section header with an horizontal line bellow.
@@ -165,15 +162,12 @@ module Hudson
       #   <% end %>
       #
       # @example generates this jelly template
-      #   <f:section title="Jroject options">
+      #   <f:section title="Job options">
       #     <f:textbox name="foo" value="${instance.foo}"/>
       #   </f:section>
       #
       def section(title, &block)
-        @output ||= ''
-        @output << %Q{<f:section title="#{title}">}
-        yield if block_given?
-        @output << '</f:section>'
+        separation :section, title, &block
       end
 
       # Foldable block expanded when the menu item is checked.
@@ -200,6 +194,24 @@ module Hudson
         @output << '</f:optionalBlock>'
       end
 
+      # Block of elements
+      #
+      # @param [Block] block is the process executed to render nested elements
+      #
+      # @example given this code
+      #   <% block do %>
+      #     <%= textbox :foo %>
+      #   <% end %>
+      #
+      # @example generates this jelly template
+      #   <f:block>
+      #     <f:textbox name="foo" value="${instance.foo}"/>
+      #   </f:block>
+      #
+      def block(&block)
+        separation :block, nil, &block
+      end
+
       private
       def content_tag(tag_name, name, field_value = 'value', options = {})
         field_name = name.to_s.split('.')[-1]
@@ -211,6 +223,15 @@ module Hudson
         }.merge options
 
         "<f:#{tag_name} #{map_to_attrs(attrs)}/>"
+      end
+
+      def separation(tag_name, title = nil, &block)
+        @output ||= ''
+        @output << %Q{<f:#{tag_name}}
+        @output << %Q{ title="#{title}"} if title
+        @output << '>'
+        yield if block_given?
+        @output << %Q{</f:#{tag_name}>}
       end
     end
   end
