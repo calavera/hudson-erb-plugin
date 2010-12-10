@@ -307,7 +307,7 @@ module Hudson
       # @example given this code
       #   <%= submit :OK %>
       #
-      # @exampe generates this jelly template
+      # @example generates this jelly template
       #   <f:submit value="OK"/>
       #
       def submit(value, name = nil)
