@@ -2,6 +2,34 @@ module Hudson
   module View
     # This module includes methods to generate jelly form templates.
     #
+    # Missing elements:
+    #   * description
+    #   * descriptorList
+    #   * descriptorRadioList
+    #   * dropdownDescriptorSelector
+    #   * dropdownList
+    #   * dropdownListBlock
+    #   * editableComboBoxValue
+    #   * enum
+    #   * enumSet
+    #   * helpArea
+    #   * hetero-list
+    #   * invisibleEntry
+    #   * nested
+    #   * option
+    #   * optionalProperty
+    #   * password
+    #   * prepareDatabinding
+    #   * property
+    #   * radio
+    #   * readOnlyTextbox
+    #   * repeatable
+    #   * repeatableDeleteButton
+    #   * richtextarea
+    #   * rowSet
+    #   * select
+    #   * slave-mode
+    #
     module Form
       # Generates an entry element for a form field.
       #
@@ -241,9 +269,49 @@ module Hudson
       #   <f:combobox field="countries" />
       #
       def combobox(field, clazz = nil)
-        combo = %Q{<f:combobox field="#{field}"}
-        combo << %Q{ clazz="#{clazz}"} if clazz
-        combo << '/>'
+        content_tag_two_elements 'combobox', ['field', field], ['clazz', clazz]
+      end
+
+      # Outer-most tag of the entire form taglib, that generates <form> element.
+      #
+      # @param [String, Symbol] name is the value for the name attribute. Required for testing and page scraping
+      # @param [String] action is the URL where the submissionis sent
+      # @param [Hash] options are other attributes that this element support
+      # @param [Block] block is the process executed to render nested elements
+      #
+      # @example given this code
+      #   <% form :config, '/config/submit' do %>
+      #     <%= textbox :name %>
+      #   <% end %>
+      #
+      # @example generates this jelly template
+      #   <f:form name="config" action="/config/submit" method="post">
+      #     <f:textbox name="name" value="${instance.name}"/>
+      #   </f:form>
+      #
+      def form(name, action, options = {}, &block)
+        method = options.delete(:method) || 'post'
+
+        @output ||= ''
+        @output << %Q{<f:form name="#{name}" action="#{action}" method="#{method}" }
+        @output << map_to_attrs(options) << '>'
+        yield if block_given?
+        @output << '</f:form>'
+      end
+
+      # Submit button themed by YUI. This should be always used instead of the plain <input tag.
+      #
+      # @param [String, Symbol] value is the text of the submit button
+      # @param [String, Symbol] name is the value of the attribute name if it's specified
+      #
+      # @example given this code
+      #   <%= submit :OK %>
+      #
+      # @exampe generates this jelly template
+      #   <f:submit value="OK"/>
+      #
+      def submit(value, name = nil)
+        content_tag_two_elements 'submit', ['value', value], ['name', name]
       end
 
       private
@@ -257,6 +325,12 @@ module Hudson
         }.merge options
 
         "<f:#{tag_name} #{map_to_attrs(attrs)}/>"
+      end
+
+      def content_tag_two_elements(tag_name, mandatory, optional)
+        content_tag = %Q{<f:#{tag_name} #{mandatory[0]}="#{mandatory[1]}"}
+        content_tag << %Q{ #{optional[0]}="#{optional[1]}"} if optional[1]
+        content_tag << '/>'
       end
 
       def separation(tag_name, title = nil, &block)

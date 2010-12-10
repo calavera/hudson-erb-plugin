@@ -216,4 +216,37 @@ describe "Hudson::View::Form" do
       combo.should == '<f:combobox field="countries" clazz="list"/>'
     end
   end
+
+  context "rendering a form" do
+    it "uses name, action and method as required arguments" do
+      form = subject.form :form, '/submit'
+      form.should == '<f:form name="form" action="/submit" method="post" ></f:form>'
+    end
+
+    it "uses the option :method to override the form method" do
+      form = subject.form :form, '/submit', :method => :get
+      form.should == '<f:form name="form" action="/submit" method="get" ></f:form>'
+    end
+
+    it "can execute a block when it's given" do
+      out = ''
+      subject.form :form, '/submit' do
+        out = 'submit'
+      end
+
+      out.should == 'submit'
+    end
+  end
+
+  context "rendering a submit button" do
+    it "takes the mandatory parameter as the element value" do
+      submit = subject.submit :OK
+      submit.should == '<f:submit value="OK"/>'
+    end
+
+    it "can takes a name to determinate which button is pressed" do
+      submit = subject.submit :OK, :submit_1
+      submit.should == '<f:submit value="OK" name="submit_1"/>'
+    end
+  end
 end
