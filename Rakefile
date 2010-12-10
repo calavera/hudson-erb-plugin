@@ -32,6 +32,7 @@ namespace :doc do
     `rm -rf doc`
     `git ci -am 'release documentation'`
     `git push origin gh-pages`
+    `git co master`
   end
 end
 
