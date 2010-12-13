@@ -272,11 +272,11 @@ module Hudson
         content_tag_two_elements 'combobox', ['field', field], ['clazz', clazz]
       end
 
-      # Outer-most tag of the entire form taglib, that generates <form> element.
+      # Outer-most tag of the entire form taglib, that generates `form` element.
       #
       # @param [String, Symbol] name is the value for the name attribute. Required for testing and page scraping
       # @param [String] action is the URL where the submissionis sent
-      # @param [Hash] options are other attributes that this element support
+      # @param [Hash] options are other attributes that this element supports
       # @param [Block] block is the process executed to render nested elements
       #
       # @example given this code
@@ -299,7 +299,7 @@ module Hudson
         @output << '</f:form>'
       end
 
-      # Submit button themed by YUI. This should be always used instead of the plain <input tag.
+      # Submit button themed by YUI. This should be always used instead of the plain `input` tag.
       #
       # @param [String, Symbol] value is the text of the submit button
       # @param [String, Symbol] name is the value of the attribute name if it's specified
