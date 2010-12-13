@@ -1,9 +1,11 @@
+require 'views/core'
 require 'views/form'
 
 module Hudson
   # This module includes methods to generate jelly general templates
   #
   module View
+    include Core
     include Form
 
     # Generates jelly view tags. It includes these namespaces by default:
